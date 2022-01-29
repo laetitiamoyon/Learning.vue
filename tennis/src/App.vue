@@ -1,19 +1,18 @@
 <template>
   <div id="app">
-    <Tennis></Tennis>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
 
-import Tennis from './components/Tennis.vue'
 export default {
   name: 'App',
   components: {
-    Tennis
   }
 }
 </script>
+
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');

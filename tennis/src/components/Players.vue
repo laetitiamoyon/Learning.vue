@@ -6,7 +6,9 @@
         <div class="fullName">{{ player.firstname }} {{ player.lastname }}</div>
         <img class="image" :src="player.picture" alt=""/>
         <div class="rank">Rang {{player.data.rank}}</div>
-        <button class="button">Plus d'information</button>
+        <button class="button">
+          <router-link :to="{ name: 'PlayerInformation', params: {id: player.id}}">Voir plus d'informations</router-link>
+      </button>
       </div>
     </div>
   </div>
@@ -14,6 +16,7 @@
 
 <script>
 import axios from "axios";
+
 export default {
   data () {
     return {
@@ -25,7 +28,7 @@ export default {
     getPlayerData () {
       axios.get('https://latelierssl.blob.core.windows.net/trainingday/TennisStats/headtohead.json')
           .then(response => this.players =  response.data.players)
-    }
+    },
   },
   mounted() {
     this.getPlayerData()
