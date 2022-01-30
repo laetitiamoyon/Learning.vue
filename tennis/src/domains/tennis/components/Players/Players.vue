@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1 class="title">Les joueurs de tennis</h1>
-    <div class="container" >
+    <div class="cards" >
       <div v-for="player in players" :key="player.id" class="card">
         <div class="fullName">{{ player.firstname }} {{ player.lastname }}</div>
         <img class="image" :src="player.picture" alt=""/>
@@ -28,5 +28,4 @@ export default {
   
 }
 </script>
-
-<style src="./tennis.css"></style>
+<style src="./players.css"></style>
