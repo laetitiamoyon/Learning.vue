@@ -7,7 +7,7 @@
     gap: 32px;
 }
 
-.card
+.player
 {
     display : flex;
     align-items: center;
