@@ -1,7 +1,7 @@
 <template >
    <div>
-    <h1 class="title">Les joueurs de tennis</h1>
-    <div class="cards" >
+    <h1 :class="$style.title">Les joueurs de tennis</h1>
+    <div :class="$style.cards" >
         <Player v-for="bestPlayer in bestPlayers" :key="bestPlayer.id" :player="bestPlayer"/>
     </div>
   </div>
@@ -19,4 +19,4 @@ export default {
     components: { Player }
 }
 </script>
-<style src="./players.css"></style>
+<style module src="./players.css"></style>

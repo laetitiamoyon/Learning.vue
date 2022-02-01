@@ -1,19 +1,19 @@
 <template>
   <div>
-    <div class="container">
-      <div class="player">
-        <div class="title">{{ player.firstname }} {{ player.lastname }}</div>
-        <img class="image" :src="player.picture" alt=""/>
-        <div><div class="label">Rang :</div> {{player.data.rank}}</div>
-        <div><div class="label">Age :</div> {{player.data.age}} ans</div>
-        <div><div class="label">Taille :</div> {{player.data.height}}cm</div>
-        <div><div class="label">Poids :</div> {{player.data.weight / 1000}}kg</div>
-        <div><div class="label">Pays d'origine :</div></div>
-        <img class="image" :src="player.country.picture" alt="player.country.code"/>
-        <div><div class="label">Résultat des derniers matchs :</div> {{player.data.last.join(', ')}}</div>
-        <div><div class="label">Nombre de points :</div> {{player.data.points}}</div>
+    <div :class="$style.container">
+      <div :class="$style.player">
+        <div :class="$style.title">{{ player.firstname }} {{ player.lastname }}</div>
+        <img :class="$style.image" :src="player.picture" alt=""/>
+        <div><div :class="$style.label">Rang :</div> {{player.data.rank}}</div>
+        <div><div :class="$style.label">Age :</div> {{player.data.age}} ans</div>
+        <div><div :class="$style.label">Taille :</div> {{player.data.height}}cm</div>
+        <div><div :class="$style.label">Poids :</div> {{player.data.weight / 1000}}kg</div>
+        <div><div :class="$style.label">Pays d'origine :</div></div>
+        <img :class="$style.image" :src="player.country.picture" alt="player.country.code"/>
+        <div><div :class="$style.label">Résultat des derniers matchs :</div> {{player.data.last.join(', ')}}</div>
+        <div><div :class="$style.label">Nombre de points :</div> {{player.data.points}}</div>
       </div>
-      <button class="button" @click="backToHome">Retouner à la page d'accueil</button>
+      <button :class="$style.button" @click="backToHome">Retouner à la page d'accueil</button>
     </div>
   </div>
 </template>
@@ -37,4 +37,4 @@ export default {
 }
 </script>
 
-<style src="./playerInformation.css"></style>
+<style module src="./playerInformation.css"></style>
