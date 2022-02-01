@@ -9,8 +9,8 @@ Vue.use(VueRouter)
 export const router = new VueRouter({
   mode: 'history',
   routes : [
-    { path: '/', name :'Players', component: Players, props: true },
-    { path: '/players/:id', name : 'PlayerInformation', component: PlayerInformation, props: true }
+    { path: '/', name :'Players', component: Players },
+    { path: '/players/:id', name : 'PlayerInformation', component: PlayerInformation }
   ]})
 
 Vue.config.productionTip = false

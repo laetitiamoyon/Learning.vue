@@ -1,33 +1,22 @@
-<template>
-  <div>
+<template >
+   <div>
     <h1 class="title">Les joueurs de tennis</h1>
     <div class="cards" >
-      <div v-for="bestPlayer in bestPlayers" :key="bestPlayer.id" class="card">
-        <div class="fullname">{{ bestPlayer.firstname }} {{ bestPlayer.lastname }}</div>
-        <img class="image" :src="bestPlayer.picture" alt=""/>
-        <div class="rank">Rang {{bestPlayer.data.rank}}</div>
-        <div>
-          <router-link tag="button" class="button" :to="{ name: 'PlayerInformation', 
-            params: {id: bestPlayer.id}}">Voir plus d'informations</router-link>
-      </div>
-      </div>
+        <Player v-for="bestPlayer in bestPlayers" :key="bestPlayer.id" :player="bestPlayer"/>
     </div>
   </div>
 </template>
 
 <script>import getPlayers from "../../utilities/getPlayers"
+import Player from "../Player/Player.vue"
 
 export default {
-  data () {
-    return {
-      players : [],
-      bestPlayers : [],
-    }
-  },
-  async mounted() {
-   this.players = await getPlayers()
-   this.bestPlayers = this.players.sort((a,b) => a.data.rank - b.data.rank)
-  },
+    data() { return { bestPlayers: [] } },
+    async mounted() {
+        this.players = await getPlayers();
+        this.bestPlayers = this.players.sort((a, b) => a.data.rank - b.data.rank);
+    },
+    components: { Player }
 }
 </script>
 <style src="./players.css"></style>
