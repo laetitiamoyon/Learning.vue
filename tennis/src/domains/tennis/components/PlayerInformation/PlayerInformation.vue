@@ -20,19 +20,15 @@
 
 <script>import getPlayers from "../../utilities/getPlayers";
 
-export default{
-    name: 'PlayerInformation',
+export default {
+  name: 'PlayerInformation',
   data () {
     return { 
       id: this.$route.params.id,
       player: []
     }
   },
-  methods: {
-    backToHome () {
-      this.$router.push('/');
-    },
-  },
+  methods: { backToHome () { this.$router.push('/'); }},
   async mounted () {
     this.id = this.$route.params.id;
     this.players = await getPlayers()
