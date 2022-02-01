@@ -7,7 +7,8 @@
         <img class="image" :src="bestPlayer.picture" alt=""/>
         <div class="rank">Rang {{bestPlayer.data.rank}}</div>
         <div>
-          <router-link class="button" :to="{ name: 'PlayerInformation', params: {id: bestPlayer.id}}">Voir plus d'informations</router-link>
+          <router-link tag="button" class="button" :to="{ name: 'PlayerInformation', 
+            params: {id: bestPlayer.id}}">Voir plus d'informations</router-link>
       </div>
       </div>
     </div>
