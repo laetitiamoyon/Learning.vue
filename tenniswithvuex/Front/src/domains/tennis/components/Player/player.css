@@ -1,0 +1,79 @@
+.card
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap : 4px;
+
+    background-color: #e7f1f596;
+    font-weight: 600;
+
+    border: #BDBDBD solid 1px;
+    border-radius: 12px;
+
+    padding: 16px;
+    box-shadow: 4px 5px 15px -2px rgba(0,0,0,0.74);
+}
+
+.deleteButton
+{
+    margin-left: auto;
+    color: white;
+    font-weight: 700;
+    border-radius: 30%;
+    border: 1px solid red;
+    background-color: red;
+}
+
+.title {text-align: center; margin : 0; color: white; font-size: 2em;}
+
+.image {  box-shadow: 4px 5px 15px -2px rgba(0,0,0,0.74); border-radius: 6px; }
+
+.fullname { font-size: 24px; font-weight: bold; }
+
+.button
+{
+    cursor: pointer;
+
+    background: blue;
+    border : none;
+    border-radius: 8px;
+    box-shadow: 4px 5px 15px -2px rgba(0,0,0,0.74);
+
+    padding : 8px 12px ;
+
+    color : white;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+
+}
+.rank { color : red; font-weight : 600; }
+
+.sex { font-weight: 600; }
+.male { color :dodgerblue ; }
+.female { color : hotpink; }
+
+.voted {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 52px;
+}
+
+.like {
+    background-image: url('../../../../../public/like.png');
+    background-repeat: repeat-y;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.dislike {
+    background-image: url('../../../../../public/dislike.png');
+    background-repeat: repeat-y;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    margin-top: 5px;
+}

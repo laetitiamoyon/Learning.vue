@@ -1,0 +1,29 @@
+<template>
+  <div id="app">
+    <router-view></router-view>
+  </div>
+</template>
+
+<script>
+export default {
+}
+</script>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background: url("https://www.enghienlesbains.fr/sites/default/files/media/images/shutterstock_1681159513.jpg") no-repeat center center / cover;
+  background-repeat: repeat-y;
+  height: 100%;
+  min-height: 700px;
+  padding : 32px 62px;
+}
+
+@media (max-width: 600px)
+{
+  body { padding : 32px; }
+}
+</style>
