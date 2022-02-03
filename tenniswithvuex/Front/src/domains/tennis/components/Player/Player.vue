@@ -1,6 +1,6 @@
 <template>
   <div :key="player.id" :class="$style.card">
-    <button :class="$style.deleteButton" @click="deletePlayer(player)">X</button>
+    <button :class="$style.deleteButton" @click="deletePlayer(player.id)">X</button>
     <div :class="$style.fullname">{{ player.firstname }} {{ player.lastname }}</div>
     <img :class="$style.image" :src="player.picture" alt=""/>
     <div :class="$style.rank">Rang {{player.data.rank}}</div>

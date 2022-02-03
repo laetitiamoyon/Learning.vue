@@ -56,7 +56,6 @@ export default {
           lastName: { required, minLength: minLength(4) },
       }
   },
-  props: ['players', 'addPlayer'],
   methods: {
       handleSubmit () {
           this.submitted = true;
