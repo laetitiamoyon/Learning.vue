@@ -13,8 +13,8 @@ export const actions = {
   },
   async addPlayer({commit}, firstname, lastname){
     const response = await axios.post(`http://localhost:3001/players`,
-    firstname, lastname)
+    {firstname:firstname, lastname:lastname})
 
     commit('ADD_PLAYER',response.data)
-}
+  }
 }

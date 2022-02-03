@@ -6,7 +6,7 @@
         <input v-if="players.length >= 1" type="text" v-model="searchTerm" :class="$style.searchBar" placeholder="Rechercher"/>
     </div>
     <div :class="$style.cards" >
-        <Player v-for="player in players" :key="player.id" :player="player" :deletePlayer="deletePlayer"/>
+        <Player v-for="player in players" :key="player.key" :player="player" :deletePlayer="deletePlayer"/>
     </div>
   </div>
 </template>
@@ -17,7 +17,7 @@ import Vuex from 'vuex'
 export default {
 data() { return { searchTerm: ''} },
 computed: {
-    ...Vuex.mapGetters(["players"])
+    ...Vuex.mapGetters(["players"]),
 },
 methods: {
     ...Vuex.mapActions(['getPlayers', 'deletePlayer'])

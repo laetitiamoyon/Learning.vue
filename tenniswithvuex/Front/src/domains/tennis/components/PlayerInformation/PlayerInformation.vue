@@ -18,7 +18,7 @@
   </div>
 </template>
 
-<script>import { getAllPlayers } from "../../players.api";
+<script>import { getAllPlayers } from "../../getAllPlayers";
 
 export default {
   name: 'PlayerInformation',
