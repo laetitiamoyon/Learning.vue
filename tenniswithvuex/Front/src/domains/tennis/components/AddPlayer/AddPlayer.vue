@@ -3,28 +3,28 @@
     <h2>Ajouter un nouveau joueur</h2>
     <form @submit.prevent="handleSubmit">
         <div class="form-group">
-            <label for="firstName">Prénom</label>
+            <label for="firstname">Prénom</label>
             <input type="text" 
-              v-model="newPlayer.firstName" 
-              name="firstName" 
+              v-model="newPlayer.firstname" 
+              name="firstname" 
               class="form-control" 
-              :class="{ 'is-invalid': submitted && $v.newPlayer.firstName.$error }" />
-              <div v-if="submitted && $v.newPlayer.firstName.$error" class="invalid-feedback">
-                <span v-if="!$v.newPlayer.firstName.required">firstName is required</span>
-                <span v-if="!$v.newPlayer.firstName.minLength">firstName required 4 characters minimum</span>
+              :class="{ 'is-invalid': submitted && $v.newPlayer.firstname.$error }" />
+              <div v-if="submitted && $v.newPlayer.firstname.$error" class="invalid-feedback">
+                <span v-if="!$v.newPlayer.firstname.required">firstname is required</span>
+                <span v-if="!$v.newPlayer.firstname.minLength">firstname required 4 characters minimum</span>
               </div>
         </div>
 
         <div class="form-group">
-            <label for="lastName">Nom</label>
+            <label for="lastname">Nom</label>
             <input type="text" 
-              v-model="newPlayer.lastName" 
-              name="lastName" 
+              v-model="newPlayer.lastname" 
+              name="lastname" 
               class="form-control" 
-              :class="{ 'is-invalid': submitted && $v.newPlayer.lastName.$error }" />
-              <div v-if="submitted && $v.newPlayer.lastName.$error" class="invalid-feedback">
-                <span v-if="!$v.newPlayer.lastName.required">lastName is required</span>
-                <span v-if="!$v.newPlayer.lastName.minLength">lastName required 4 characters minimum</span>
+              :class="{ 'is-invalid': submitted && $v.newPlayer.lastname.$error }" />
+              <div v-if="submitted && $v.newPlayer.lastname.$error" class="invalid-feedback">
+                <span v-if="!$v.newPlayer.lastname.required">lastname is required</span>
+                <span v-if="!$v.newPlayer.lastname.minLength">lastname required 4 characters minimum</span>
               </div>
         </div>
         <div class="form-group">
@@ -39,12 +39,13 @@ import { required, minLength } from "vuelidate/lib/validators";
 import { validationMixin } from 'vuelidate';
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
+import Vuex from 'vuex'
 export default {
   data() {
       return {
           newPlayer: {
-              firstName: "",
-              lastName: "",
+              firstname: "",
+              lastname: "",
           },
           submitted: false
       };
@@ -52,25 +53,25 @@ export default {
   mixins: [validationMixin],
   validations: {
       newPlayer: {
-          firstName: { required, minLength: minLength(4) },
-          lastName: { required, minLength: minLength(4) },
+          firstname: { required, minLength: minLength(4) },
+          lastname: { required, minLength: minLength(4) }
       }
   },
   methods: {
-      handleSubmit () {
-          this.submitted = true;
-
-          // stop here if form is invalid
-          this.$v.$touch();
+  
+    ...Vuex.mapActions(["addPlayer"]),
+    handleSubmit(event) {
+      this.submitted = true;
+      this.$v.$touch();
           if (this.$v.$invalid) {
               return;
           }
-
-          alert("SUCCESS!! :-)\n\n" + JSON.stringify(this.newPlayer));
-          this.addPlayer(this.newPlayer.firstName, this.newPlayer.lastName)
-      }
+      event.preventDefault();
+      this.addPlayer({firstname : this.newPlayer.firstname, lastname: this.newPlayer.lastname});
+      this.$router.push('/'); 
   }
-};
+  }
+}
 </script>
 
 <style src="./addPlayer.css"></style>

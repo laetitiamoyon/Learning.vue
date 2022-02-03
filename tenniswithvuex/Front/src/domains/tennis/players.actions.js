@@ -6,12 +6,15 @@ export const actions = {
       headers: {'Content-Type' : 'application/json'}})
       commit('SET_PLAYERS', response.data)
   },
-  addPlayer : (store, firstname, lastname) => {
-    store.commit('ADD_PLAYER', firstname, lastname)
-  },
   async deletePlayer({commit}, id){
     await axios.delete(`http://localhost:3001/players/${id}`, {
       headers: {'Content-Type' : 'application/json'}})
       commit('DELETE_PLAYER', id)
   },
+  async addPlayer({commit}, firstname, lastname){
+    const response = await axios.post(`http://localhost:3001/players`,
+    firstname, lastname)
+
+    commit('ADD_PLAYER',response.data)
+}
 }
